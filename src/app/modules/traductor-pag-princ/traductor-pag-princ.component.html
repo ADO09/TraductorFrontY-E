@@ -1,0 +1,90 @@
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <h1 class="display-4">Traductor Español - Yoreme</h1>
+    </div>
+  </div>
+ 
+</div>
+<!-- <body>
+
+  <form [formGroup]="formTraductor" (ngSubmit)="trad()">
+
+    <main>
+      <div class="container">
+        <div class="form-group">
+          <label for="inputTexto">Texto en español:</label>
+          <textarea id="inputTexto" rows="5" formControlName="oracionTraductora"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="outputTexto">Texto traducido:</label>
+          <textarea id="outputTexto" rows="5" formControlName="oracionTraducida" readonly ></textarea>
+        </div>
+        <button type="submit" id="btnTraducir">Traducir</button>
+      </div>
+    </main>
+  </form>
+  <footer>
+    <p>© 2023 Traductor Español - Yoreme</p>
+  </footer>
+  
+</body> -->
+
+
+<div class="container w-75 p-3 m-t-5">
+  <form [formGroup]="formTraductor" (ngSubmit)="trad()">
+  <div class="row">
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">
+          {{ TDT === 'español' ? 'Español' : 'Yoreme' }}
+        </label>
+
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" formControlName="oracionTraductora"></textarea>
+      </div>
+    </div>
+    <div class="col-sm-1 justify-content-center">
+
+      <span  class="btn btn-primary mb-3" (click)="canvTrad()" ><i class="bi bi-arrow-left-right"></i></span>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">
+          {{ TDT === 'yoreme' ? 'Español' : 'Yoreme' }}
+        </label>
+        <textarea class="form-control" id="outputTexto" rows="5" formControlName="oracionTraducida" readonly></textarea>
+      </div>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col-sm-2">
+          <span  class="btn btn-primary mb-3"><i class="bi bi-mic-fill"></i></span>
+        </div>
+        <div class="col-sm-2">
+          <span  class="btn btn-primary mb-3"><i class="bi bi-volume-up-fill"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+  
+    </div>
+    <div class="col">
+      
+
+      <div class="row">
+        <div class="col-sm-8">
+          <button type="submit" id="btnTraducir" class="btn btn-primary mb-3">Traducir</button>
+        </div>
+        <div class="col-sm-2 d-flex flex-row-reverse">
+          <span  class="btn btn-info mb-3"><i class="bi bi-copy"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+
