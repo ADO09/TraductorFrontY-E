@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TraductorPrincServiceService } from 'src/app/services/traductor-princ-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-traductor-pag-princ',
@@ -47,7 +48,16 @@ export class TraductorPagPrincComponent implements OnInit {
       .subscribe((r) => {
         console.log(r);
 
-        this.formTraductor.get('oracionTraducida')?.setValue(r.traduccion);
+        if (r.traduccion === null) {
+          Swal.fire({
+            title: "intenta otra oracción",
+            text: "Error en traduccion no se encontro una traducción adecuada",
+            icon: "error"
+          });
+        } else {
+          this.formTraductor.get('oracionTraducida')?.setValue(r.traduccion);
+        }
+       
       });
     } else if (this.TDT=="yoreme") {
       this.tradPrincService
