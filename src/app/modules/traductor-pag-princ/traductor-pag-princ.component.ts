@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TraductorPrincServiceService } from 'src/app/services/traductor-princ-service.service';
 import Swal from 'sweetalert2';
+import { ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-traductor-pag-princ',
@@ -13,10 +14,11 @@ export class TraductorPagPrincComponent implements OnInit {
   public datosTA: any = [];
   public formData = new FormData();
   public TDT = "español";
+  @ViewChild('textoParaCopiar', {static: false}) textoParaCopiar?: ElementRef;
   constructor(
     private tradPrincService: TraductorPrincServiceService,
     private fb: FormBuilder,
-    
+    private renderer: Renderer2
   ) {
     tradPrincService.getTraduccion().subscribe((r) => {
       console.log(r);
@@ -71,6 +73,14 @@ export class TraductorPagPrincComponent implements OnInit {
     }
    
   }
+
+  copiarAlPortapapeles() {
+    const elemento = this.textoParaCopiar?.nativeElement;
+    elemento.select();
+    document.execCommand('copy');
+    navigator.clipboard.writeText(elemento.value);
+  }
+
 
   canvTrad(){
     if (this.TDT == 'español') {

@@ -53,7 +53,7 @@
         <label for="exampleFormControlTextarea1" class="form-label">
           {{ TDT === 'yoreme' ? 'Español' : 'Yoreme' }}
         </label>
-        <textarea class="form-control" id="outputTexto" rows="5" formControlName="oracionTraducida" readonly></textarea>
+        <textarea #textoParaCopiar class="form-control" id="outputTexto" rows="5" formControlName="oracionTraducida" readonly></textarea>
       </div>
       
     </div>
@@ -79,7 +79,7 @@
         <div class="col-sm-8">
           <button type="submit" id="btnTraducir" class="btn btn-primary mb-3">Traducir</button>
         </div>
-        <div class="col-sm-2 d-flex flex-row-reverse">
+        <div class="col-sm-2 d-flex flex-row-reverse" (click)="copiarAlPortapapeles()">
           <span  class="btn btn-info mb-3"><i class="bi bi-copy"></i></span>
         </div>
       </div>
