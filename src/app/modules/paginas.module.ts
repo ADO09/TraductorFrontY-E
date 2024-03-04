@@ -6,6 +6,8 @@ import { EntrCorpusComponent } from './entr-corpus/entr-corpus.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+
+
 @NgModule({
   declarations: [
     TraductorPagPrincComponent,
@@ -15,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     PaginasRoutingModule,
     ReactiveFormsModule,
+    
   ]
 })
 export class PaginasModule { }

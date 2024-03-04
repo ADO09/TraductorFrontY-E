@@ -36,6 +36,7 @@ export class TraductorPagPrincComponent implements OnInit {
     this.formData.append('oracion', this.formTraductor.value.oracionTraductora);
     console.log(this.formTraductor.value.oracionTraductora);
 
+
     const data = {
       oracion: this.formTraductor.value.oracionTraductora,
     };
@@ -55,6 +56,7 @@ export class TraductorPagPrincComponent implements OnInit {
             icon: "error"
           });
         } else {
+          this.formTraductor.reset();
           this.formTraductor.get('oracionTraducida')?.setValue(r.traduccion);
         }
        
