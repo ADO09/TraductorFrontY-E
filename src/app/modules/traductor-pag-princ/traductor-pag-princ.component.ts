@@ -48,7 +48,7 @@ export class TraductorPagPrincComponent implements OnInit {
       .postTraduccion(this.formTraductor.value.oracionTraductora)
       .subscribe((r) => {
         console.log(r);
-
+        this.formTraductor.get('oracionTraducida')?.setValue(''); // o patchValue('')
         if (r.traduccion === null) {
           Swal.fire({
             title: "intenta otra oracción",
@@ -56,7 +56,7 @@ export class TraductorPagPrincComponent implements OnInit {
             icon: "error"
           });
         } else {
-          this.formTraductor.reset();
+           
           this.formTraductor.get('oracionTraducida')?.setValue(r.traduccion);
         }
        
